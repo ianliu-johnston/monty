@@ -20,7 +20,7 @@ Stacks = FIFO
 * [Using externs to share variables between source files](http://stackoverflow.com/questions/1433204/how-do-i-use-extern-to-share-variables-between-source-files-in-c)
 
 ## FIFO and LIFO Accounting
-* []()
+* [Wikipedia -- FIFO and LIFO Accounting](https://en.wikipedia.org/wiki/FIFO_and_LIFO_accounting)
 
 ## Brainfu*k Language 
 * [Wikipedia](https://en.wikipedia.org/wiki/Brainfuck)
