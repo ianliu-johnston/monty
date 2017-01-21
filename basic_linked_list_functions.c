@@ -48,11 +48,11 @@ void free_stack(stack_t *head)
 
 
 /**
- * pull - return the node at the beginning
+ * pop - return the node at the beginning
  * @head: pointer to a dll
  * Return: pointer to the node or NULL
  */
-stack_t *pull(stack_t **head)
+stack_t *pop(stack_t **head)
 {
 	stack_t *tmp;
 
