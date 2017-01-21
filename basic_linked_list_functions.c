@@ -56,11 +56,14 @@ stack_t *pull(stack_t **head)
 {
 	stack_t *tmp;
 
-	if (!head !! !*head)
+	if (!head || !*head)
 		return (NULL);
 
 	tmp = *head;
 	*head = (*head)->next;
+
+	if(*head)
+		(*head)->previous = NULL;
 
 	return (tmp); /*remember to free it*/
 }
@@ -71,14 +74,22 @@ stack_t *pull(stack_t **head)
  * @head: pointer to a dll
  * Return: pointer to node or NULL
  */
-stack_t *dequeue(stack_t *head)
+stack_t *dequeue(stack_t **head)
 {
+	stack_t *h;
 
-	while (head->next != NULL)
-	{
-		++i;
-		head = head->next;
-	}
+	if (!head || !*head)
+		return (NULL);
 
-	return (head);
+	h = *head;
+	while (h->next != NULL)
+		h = h->next;
+
+	if (h->previous)
+		(h->previous)->next = NULL;
+	else
+		/*the queue had one element or less*/
+		*head = NULL;
+
+	return (h);
 }
