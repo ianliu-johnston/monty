@@ -37,12 +37,16 @@ typedef struct instruction_s
 
 
 /*basic functions related to doubly linked list*/
-size_t print_ints(const stack_t *h);
 stack_t *add_node(stack_t **head, const int n);
 void free_stack(stack_t *head);
 stack_t *pull(stack_t **head);
 stack_t *dequeue(stack_t *head);
 
+/*functions to print the stack or queue*/
+void print_ints(const stack_t **h, int l);
+void print_string(const stack_t **h, int l);
+void pchar_stack(const stack_t **h, int l);
+void pchar_queue(const stack_t **h, int l);
 
 
 
