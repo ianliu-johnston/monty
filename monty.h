@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*extern variable, stack or queue*/
+extern char* flag;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
