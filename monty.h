@@ -60,5 +60,16 @@ void swap(stack_t **h, int l);
 void rotl(stack_t **h, int l);
 void rotr(stack_t **h, int l);
 
+/*in calculations*/
+int *get_arguments(stack_t **h, int *args);
+void add(stack_t **h, int l);
+void sub(stack_t **h, int l);
+void div(stack_t **h, int l);
+void mul(stack_t **h, int l);
+void mod(stack_t **h, int l);
+
+/*in helpers*/
+char *skip_spaces(char *s);
+char *reach_number(char *s);
 
 #endif
