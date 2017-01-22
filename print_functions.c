@@ -6,12 +6,12 @@
 
 
 /**
- * print_ints - print all the elements in a dll as numbers
+ * pall - print all the elements in a dll as numbers
  * @h: pointer to dll
 `* @l: line number
  * opcode: pall
  */
-void print_ints(const stack_t **h, int l)
+void pall(stack_t **h, int l)
 {
 	(void) l;
 
@@ -28,12 +28,12 @@ void print_ints(const stack_t **h, int l)
 
 
 /**
- * print_string - print all the elements in a dll as chars
+ * pstr - print all the elements in a dll as chars
  * @h: pointer to dll
  * @l: line number
  * opcode: pstr
  */
-void print_string(const stack_t **h, int l)
+void pstr(stack_t **h, int l)
 {
 	(void) l;
 
@@ -55,7 +55,7 @@ void print_string(const stack_t **h, int l)
  * @l: line number
  * opcode: pchar
  */
-void pint(const stack_t **h, int l)
+void pint(stack_t **h, int l)
 {
 
 	if (!h || !*h)
@@ -77,7 +77,7 @@ void pint(const stack_t **h, int l)
  * @l: line number
  * opcode: pchar
  */
-void pchar(const stack_t **h, int l)
+void pchar(stack_t **h, int l)
 {
 	int value;
 

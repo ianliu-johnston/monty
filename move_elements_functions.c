@@ -15,21 +15,18 @@ void swap(stack_t **h, int l)
 
 	if (!h || !*h)
 	{
-		printf("L%d: can't swap, stack too short\n", l);
-		/*maybe we need 2 functions to get the right string*/
+		printf("L%d: can't swap, %s too short\n", l, flag);
 		free_stack(*h);
-		free(command); /*free extern variable*/
-		exit(EXIT_STATUS);
+		exit(EXIT_FAILURE);
 	}
 
 	value0 = (*h)->n;
 
 	if ((*h)->next == NULL)
 	{
-		printf("L%d: can't swap, stack too short\n", l);
+		printf("L%d: can't swap, %s too short\n", l, flag);
 		free_stack(*h);
-		free(command); /*free extern variable*/
-		exit(EXIT_STATUS);
+		exit(EXIT_FAILURE);
 	}
 
 	(*h)->n = ((*h)->next)->n;

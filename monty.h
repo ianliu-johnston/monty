@@ -42,16 +42,23 @@ typedef struct instruction_s
 /*basic functions related to doubly linked list*/
 stack_t *add_node(stack_t **head, const int n);
 void free_stack(stack_t *head);
-stack_t *pop(stack_t **head);
+stack_t *pop_s(stack_t **head);
 stack_t *dequeue(stack_t *head);
 
 /*functions to print the stack or queue*/
-void print_ints(const stack_t **h, int l);
-void print_string(const stack_t **h, int l);
-void pchar(const stack_t **h, int l);
-void pint(const stack_t **h, int l);
+void pall(stack_t **h, int l);
+void pstr(stack_t **h, int l);
+void pchar(stack_t **h, int l);
+void pint(stack_t **h, int l);
 
+/*in push_and_pop*/
+void pop(stack_t **h, int l);
+void push (stack_t **h, int n);
 
+/*in move_elements_functions*/
+void swap(stack_t **h, int l);
+void rotl(stack_t **h, int l);
+void rotr(stack_t **h, int l);
 
 
 #endif
