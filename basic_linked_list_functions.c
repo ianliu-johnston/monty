@@ -52,7 +52,7 @@ void free_stack(stack_t *head)
  * @head: pointer to a dll
  * Return: pointer to the node or NULL
  */
-stack_t *pop(stack_t **head)
+stack_t *pop_s(stack_t **head)
 {
 	stack_t *tmp;
 
