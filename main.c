@@ -20,14 +20,14 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		puts("USAGE: monty file");
+		fprintf(stderr, "USAGE: %s file\n", av[0]);
 		exit(EXIT_FAILURE);
 	}
 	h = NULL;
 	fp = fopen(av[1], "r");
 	if (fp == NULL)
 	{
-		printf("Error: Can't open file %s\n", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	line_number = 0;
