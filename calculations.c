@@ -1,62 +1,53 @@
 #include "monty.h"
 
 /*this file contains 6 functions*/
-/*bad code, too many repetitions*/
+/*could make a common exit function*/
 
 /**
- * get_arguments - return the arguments for calulations
+ * get_argument - return the arguments for calulations
  * @h: pointer to dll
- * @args: pointer to array of size 2
- * Return: the array of arguments or NULL on failure
+ * @opcode: opcode string
+ * @l: line number
+ * Return: the argument
  */
-int *get_arguments(stack_t **h, int *args)
+int get_argument(stack_t **h, char *opcode, int l)
 {
 	stack_t *node;
+	int tmp;
 
-	if (flag == "stacK")
+	if (_strcmp(flag, "stack") == 0)
 	{
 		node = pop_s(h);
-		if (node == NULL)
-			return (NULL);
-		args[0] = node->n;
-		free(node);
-		node = pop_s(h);
-		if (node == NULL)
-			return (NULL);
-		args[1] = node->n;
-		free(node);
-		return (args);
 	}
-	node = dequeue(h);
+	else
+	{
+		node = dequeue(h);
+	}
 	if (node == NULL)
-		return (NULL);
-	args[0] = node->n;
+	{
+		printf("L%d: can't %s, %s too short\n", l, opcode, flag);
+		free_stack(*h);
+		exit(EXIT_FAILURE);
+	}
+	tmp = node->n;
 	free(node);
-	node = dequeue(h);
-	if (node == NULL)
-		return (NULL);
-	args[1] = node->n;
-	free(node);
-	return (args);
+	return (tmp);
 }
 
 /**
  * add - add the top 2 values on the stack
  * @h: pointer to dll
  * @l: line number
+ * opcode add
  */
-void add(stack_t **h, int l)
+void _add(stack_t **h, int l)
 {
-	int args[2];
+	int n1, n2;
 
-	args = get_arguments(h, args);
-	if (args == NULL)
-	{
-		printf("L%d: can't add, %s too short\n", l, flag);
-		free_stack(*h);
-		exit(EXIT_FAILURE);
-	}
-	add_node(h, args[0] + args[1]);
+	n1 = get_argument(h, "add", l);
+	n2 = get_argument(h, "add", l);
+
+	add_node(h, n1 + n2);
 }
 
 
@@ -64,19 +55,16 @@ void add(stack_t **h, int l)
  * sub - subtract the top 2 values on the stack
  * @h: pointer to dll
  * @l: line number
+ * opcode: sub
  */
-void sub(stack_t **h, int l)
+void _sub(stack_t **h, int l)
 {
-	int args[2];
+	int n1, n2;
 
-	args = get_arguments(h, args);
-	if (args == NULL)
-	{
-		printf("L%d: can't sub, %s too short\n", l, flag);
-		free_stack(*h);
-		exit(EXIT_FAILURE);
-	}
-	add_node(h, args[1] - args[0]);
+	n1 = get_argument(h, "sub", l);
+	n2 = get_argument(h, "sub", l);
+
+	add_node(h, n2 - n1);
 }
 
 
@@ -84,25 +72,22 @@ void sub(stack_t **h, int l)
  * div - divides the top 2 values on the stack
  * @h: pointer to dll
  * @l: line number
+ * opcode: div
  */
-void div(stack_t **h, int l)
+void _div(stack_t **h, int l)
 {
-	int args[2];
+	int n1, n2;
 
-	args = get_arguments(h, args);
-	if (args == NULL)
-	{
-		printf("L%d: can't sub, %s too short\n", l, flag);
-		free_stack(*h);
-		exit(EXIT_FAILURE);
-	}
-	if (args[0] == 0)
+	n1 = get_argument(h, "div", l);
+	n2 = get_argument(h, "div", l);
+
+	if (n1 == 0)
 	{
 		printf("L%d: division by zero\n", l);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
 	}
-	add_node(h, args[1] / args[0]);
+	add_node(h, n2 / n1);
 }
 
 
@@ -110,19 +95,16 @@ void div(stack_t **h, int l)
  * mul - multiply the top 2 values on the stack
  * @h: pointer to dll
  * @l: line number
+ * opcode: mul
  */
-void mul(stack_t **h, int l)
+void _mul(stack_t **h, int l)
 {
-	int args[2];
+	int n1, n2;
 
-	args = get_arguments(h, args);
-	if (args == NULL)
-	{
-		printf("L%d: can't mul, %s too short\n", l, flag);
-		free_stack(*h);
-		exit(EXIT_FAILURE);
-	}
-	add_node(h, args[1] * args[0]);
+	n1 = get_argument(h, "mul", l);
+	n2 = get_argument(h, "mul", l);
+
+	add_node(h, n2 * n1);
 }
 
 
@@ -131,23 +113,20 @@ void mul(stack_t **h, int l)
  * mod - get the modulo of the top 2 values on the stack
  * @h: pointer to dll
  * @l: line number
+ * opcode: mod
  */
-void mod(stack_t **h, int l)
+void _mod(stack_t **h, int l)
 {
-	int args[2];
+	int n1, n2;
 
-	args = get_arguments(h, args);
-	if (args == NULL)
-	{
-		printf("L%d: can't mod, %s too short\n", l, flag);
-		free_stack(*h);
-		exit(EXIT_FAILURE);
-	}
-	if (args[0] == 0)
+	n1 = get_argument(h, "mod", l);
+	n2 = get_argument(h, "mod", l);
+
+	if (n1 == 0)
 	{
 		printf("L%d: division by zero\n", l);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
 	}
-	add_node(h, args[1] % args[0]);
+	add_node(h, n2 % n1);
 }

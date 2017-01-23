@@ -47,3 +47,42 @@ char *reach_number(char *s)
 }
 
 /*use atoi with this return value*/
+
+
+/**
+ * _strcmp - compare 2 strings see strcmp()
+ * @s1: string to compare
+ * @s2: string used as reference
+ * Return: It returns the difference in value of the first characters where
+ * s1 and s2 disagree
+*/
+int _strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (*(s1 + i) == *(s2 + i) && *(s1 + i) != '\0' && *(s2 + i) != '\0')
+		i++;
+	return (*(s1 + i) - *(s2 + i));
+}
+
+
+
+/**
+ * _strncmp - compare 2 strings see strcmp()
+ * @s1: string to compare
+ * @s2: string used as reference
+ * @n: length of string to compare
+ * Return: It returns the difference in value of the first characters where
+ * s1 and s2 disagree
+*/
+int _strncmp(char *s1, char *s2, int n)
+{
+	int i;
+
+	i = 0;
+	while (*(s1 + i) == *(s2 + i) && *(s1 + i) != '\0'
+	       && *(s2 + i) != '\0' && i < n)
+		i++;
+	return (*(s1 + i) - *(s2 + i));
+}
