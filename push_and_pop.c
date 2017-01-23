@@ -6,13 +6,26 @@
 /**
  * push - add an element to the stack/queue
  * @h: pointer to dll
- * @n: value to add
+ * @line: pointer to line
+ * @l: line number
  */
-void push(stack_t **h, int n)
+void push(stack_t **h, char *line, int l)
 {
+	char *start_n;
 	stack_t *node;
 
-	node = add_node(h, n);
+	start_n = reach_number(line);
+	if (start_n == NULL)
+	{
+		printf("L%d: usage: push integer\n", l);
+		free(line);
+		free(*h);
+		*h = NULL;
+		exit(EXIT_FAILURE);
+	};
+
+	node = add_node(h, atoi(start_n));
+	free(line);
 	if (node == NULL)
 	{
 		puts("Error: malloc failed");
@@ -28,16 +41,16 @@ void push(stack_t **h, int n)
  */
 void pop(stack_t **h, int l)
 {
-	statck_t *node;
+	stack_t *node;
 
-	if (flag == "stack")
+	if (_strcmp(flag, "stack") == 0)
 		node = pop_s(h);
 	else
 		node = dequeue(h);
 
 	if (node == NULL)
 	{
-		print("L%d: can't pop an empty %s\n", l, flag);
+		printf("L%d: can't pop an empty %s\n", l, flag);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
 	}

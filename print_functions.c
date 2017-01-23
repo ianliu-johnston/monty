@@ -23,7 +23,6 @@ void pall(stack_t **h, int l)
 		printf("%d\n", (*h)->n);
 		*h = (*h)->next;
 	}
-	return (count);
 }
 
 
@@ -45,7 +44,6 @@ void pstr(stack_t **h, int l)
 		printf("%c\n", (*h)->n);
 		*h = (*h)->next;
 	}
-	return (count);
 }
 
 
@@ -90,9 +88,13 @@ void pchar(stack_t **h, int l)
 
 	value = (*h)->n;
 	if (value <0 || value > 127)
+	{
 		printf("L%d: can't pchar, value out of range\n", l);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
+	}
 	else
+	{
 		printf("%c\n", value);
+	}
 }

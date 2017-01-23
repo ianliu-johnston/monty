@@ -42,22 +42,23 @@ void swap(stack_t **h, int l)
  */
 void rotl(stack_t **h, int l)
 {
-	(void) l;
 	stack_t *node, *tmp;
+
+	(void) l;
 
 	if (!h || !*h)
 		return;
 	if (!(*h)->next)
 		return; /*one element in the stack*/
 
-	node = pop(h);
+	node = pop_s(h);
 	node->next = NULL;
 
 	tmp = *h;
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = node;
-	node->previous = tmp;
+	node->prev = tmp;
 }
 
 
@@ -69,8 +70,9 @@ void rotl(stack_t **h, int l)
  */
 void rotr(stack_t **h, int l)
 {
-	(void) l;
 	stack_t *node;
+
+	(void)l;
 
 	if (!h || !*h)
 		return;
@@ -78,9 +80,9 @@ void rotr(stack_t **h, int l)
 		return; /*one element in the stack*/
 
 	node = dequeue(h);
-	node->previous = NULL;
+	node->prev = NULL;
 
-	node->next = *head;
-	(*head)->previous = node;
-	*head = node;
+	node->next = *h;
+	(*h)->prev = node;
+	*h = node;
 }

@@ -14,7 +14,7 @@ stack_t *add_node(stack_t **head, const int n)
 	if (!head)
 		return (NULL);
 
-	new = malloc(sizeof(dlistint_t));
+	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 		return (NULL);
 
@@ -63,7 +63,7 @@ stack_t *pop_s(stack_t **head)
 	*head = (*head)->next;
 
 	if(*head)
-		(*head)->previous = NULL;
+		(*head)->prev = NULL;
 
 	return (tmp); /*remember to free it*/
 }
@@ -85,8 +85,8 @@ stack_t *dequeue(stack_t **head)
 	while (h->next != NULL)
 		h = h->next;
 
-	if (h->previous)
-		(h->previous)->next = NULL;
+	if (h->prev)
+		(h->prev)->next = NULL;
 	else
 		/*the queue had one element or less*/
 		*head = NULL;
