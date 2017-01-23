@@ -38,7 +38,7 @@ void execute(stack_t **h, char *line, unsigned int line_number)
 		return;
 	}
 
-	for (i = 0; i < 14; ++i)
+	for (i = 0; instr[i].opcode; ++i)
 	{
 		if (_strncmp(start_c, instr[i].opcode,
 			    _strlen(instr[i].opcode)) == 0)
