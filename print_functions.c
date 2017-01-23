@@ -11,7 +11,7 @@
 `* @l: line number
  * opcode: pall
  */
-void pall(stack_t **h, int l)
+void pall(stack_t **h, unsigned int l)
 {
 	(void) l;
 
@@ -32,7 +32,7 @@ void pall(stack_t **h, int l)
  * @l: line number
  * opcode: pstr
  */
-void pstr(stack_t **h, int l)
+void pstr(stack_t **h, unsigned int l)
 {
 	(void) l;
 
@@ -53,7 +53,7 @@ void pstr(stack_t **h, int l)
  * @l: line number
  * opcode: pchar
  */
-void pint(stack_t **h, int l)
+void pint(stack_t **h, unsigned int l)
 {
 
 	if (!h || !*h)
@@ -75,7 +75,7 @@ void pint(stack_t **h, int l)
  * @l: line number
  * opcode: pchar
  */
-void pchar(stack_t **h, int l)
+void pchar(stack_t **h, unsigned int l)
 {
 	int value;
 

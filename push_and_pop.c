@@ -9,7 +9,7 @@
  * @line: pointer to line
  * @l: line number
  */
-void push(stack_t **h, char *line, int l)
+void push(stack_t **h, char *line, unsigned int l)
 {
 	char *start_n;
 	stack_t *node;
@@ -39,7 +39,7 @@ void push(stack_t **h, char *line, int l)
  * @h: pointer to dll
  * @l: line number
  */
-void pop(stack_t **h, int l)
+void pop(stack_t **h, unsigned int l)
 {
 	stack_t *node;
 

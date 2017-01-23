@@ -5,7 +5,7 @@
  * @h: pointer to dll
  * @l: line number
  */
-void nop(stack_t **h, int l)
+void nop(stack_t **h, unsigned int l)
 {
 	(void)h;
 	(void)l;
@@ -17,7 +17,7 @@ void nop(stack_t **h, int l)
  * @h: pointer to dll
  * @l: line number
  */
-void queue(stack_t **h, int l)
+void queue(stack_t **h, unsigned int l)
 {
 	(void)h;
 	(void)l;
@@ -31,7 +31,7 @@ void queue(stack_t **h, int l)
  * @h: pointer to dll
  * @l: line number
  */
-void stack(stack_t **h, int l)
+void stack(stack_t **h, unsigned int l)
 {
 	(void)h;
 	(void)l;
