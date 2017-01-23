@@ -1,5 +1,6 @@
 #include "monty.h"
 
+char *flag = "stack";
 
 /**
  * main - main function to run monty
@@ -23,7 +24,6 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	h = NULL;
-	flag = "stack";
 	fp = fopen(av[1], "r");
 	if (fp == NULL)
 	{
@@ -36,6 +36,7 @@ int main(int ac, char **av)
 		line = NULL;
 		length = 0;
 		nr = getline(&line, &length, fp);
+		printf("%s\n", __FILE__);
 		if (nr > 0)
 			execute(&h, line, line_number);
 		else
