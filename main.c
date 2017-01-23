@@ -11,7 +11,7 @@
 int main(int ac, char **av)
 {
 	stack_t *h;
-	int line_number;
+	unsigned int line_number;
 	ssize_t nr;
 	char *line;
 	size_t length;

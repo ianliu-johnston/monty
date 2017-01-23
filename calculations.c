@@ -10,7 +10,7 @@
  * @l: line number
  * Return: the argument
  */
-int get_argument(stack_t **h, char *opcode, int l)
+int get_argument(stack_t **h, char *opcode, unsigned int l)
 {
 	stack_t *node;
 	int tmp;
@@ -40,7 +40,7 @@ int get_argument(stack_t **h, char *opcode, int l)
  * @l: line number
  * opcode add
  */
-void _add(stack_t **h, int l)
+void _add(stack_t **h, unsigned int l)
 {
 	int n1, n2;
 
@@ -57,7 +57,7 @@ void _add(stack_t **h, int l)
  * @l: line number
  * opcode: sub
  */
-void _sub(stack_t **h, int l)
+void _sub(stack_t **h, unsigned int l)
 {
 	int n1, n2;
 
@@ -74,7 +74,7 @@ void _sub(stack_t **h, int l)
  * @l: line number
  * opcode: div
  */
-void _div(stack_t **h, int l)
+void _div(stack_t **h, unsigned int l)
 {
 	int n1, n2;
 
@@ -97,7 +97,7 @@ void _div(stack_t **h, int l)
  * @l: line number
  * opcode: mul
  */
-void _mul(stack_t **h, int l)
+void _mul(stack_t **h, unsigned int l)
 {
 	int n1, n2;
 
@@ -115,7 +115,7 @@ void _mul(stack_t **h, int l)
  * @l: line number
  * opcode: mod
  */
-void _mod(stack_t **h, int l)
+void _mod(stack_t **h, unsigned int l)
 {
 	int n1, n2;
 

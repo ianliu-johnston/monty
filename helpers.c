@@ -6,6 +6,21 @@
 /* these function do not take # into account yet*/
 
 /**
+ * _strlen - string length
+ * @s: string
+ * Return: length of string
+ */
+int _strlen(char *s)
+{
+	int i;
+
+	for (i = 0; *(s + i); ++i)
+		;
+	return (i);
+}
+
+
+/**
  * skip_spaces - skip whitespaces
  * @s: a string
  *

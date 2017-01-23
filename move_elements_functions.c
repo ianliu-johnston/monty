@@ -9,7 +9,7 @@
  * @l: line number
  * opcode: swap
  */
-void swap(stack_t **h, int l)
+void swap(stack_t **h, unsigned int l)
 {
 	int value0;
 
@@ -40,7 +40,7 @@ void swap(stack_t **h, int l)
  * @l: line number
  * opcode: rotl
  */
-void rotl(stack_t **h, int l)
+void rotl(stack_t **h, unsigned int l)
 {
 	stack_t *node, *tmp;
 
@@ -68,7 +68,7 @@ void rotl(stack_t **h, int l)
  * @l: line number
  * opcode: rotr
  */
-void rotr(stack_t **h, int l)
+void rotr(stack_t **h, unsigned int l)
 {
 	stack_t *node;
 

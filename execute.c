@@ -7,12 +7,9 @@
  * @line: command line
  * @line_number: line number of the command line in the file
  */
-void execute(stack_t **h, char *line, int line_number)
+void execute(stack_t **h, char *line, unsigned int line_number)
 {
-	int i;
-	char *start_c;
-
-	instruction_t instr[14] = {
+	instruction_t instr[] = {
 		{"pall", pall},
 		{"add", _add},
 		{"sub", _sub},
@@ -24,16 +21,18 @@ void execute(stack_t **h, char *line, int line_number)
 		{"rotl", rotl},
 		{"rotr", rotr},
 		{"stack", stack},
-		{"queue", queue}
+		{"queue", queue},
 		{"nop", nop},
 		{NULL, NULL}
 	};
+	int i;
+	char *start_c;
 
 	start_c = skip_spaces(line);
 	if (start_c == NULL)
 		return;
 
-	if (_strncmp(start_c, "push", strlen("push")) == 0)
+	if (_strncmp(start_c, "push", _strlen("push")) == 0)
 	{
 		push(h, line, line_number);
 		return;
@@ -42,10 +41,9 @@ void execute(stack_t **h, char *line, int line_number)
 	for (i = 0; i < 14; ++i)
 	{
 		if (_strncmp(start_c, instr[i].opcode,
-			    strlen(instr[i].opcode)) == 0)
+			    _strlen(instr[i].opcode)) == 0)
 		{
 			free(line);
-			line == NULL;
 			instr[i].f(h, line_number);
 			return;
 		}
