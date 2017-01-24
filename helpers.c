@@ -86,18 +86,23 @@ int _strcmp(char *s1, char *s2)
 /**
  * _strncmp - compare 2 strings see strcmp()
  * @s1: string to compare
- * @s2: string used as reference
- * @n: length of string to compare
- * Return: It returns the difference in value of the first characters where
- * s1 and s2 disagree
+ * @s2: opcode
+ * @n: length of opcode to compare
+ * Return: It returns 0 if OK 
 */
 int _strncmp(char *s1, char *s2, int n)
 {
 	int i;
 
 	i = 0;
-	while (*(s1 + i) == *(s2 + i) && *(s1 + i) != '\0'
-	       && *(s2 + i) != '\0' && i < n)
-		i++;
-	return (*(s1 + i) - *(s2 + i));
+	while (*(s1 + i) != '\0' && *(s2 + i) != '\0' && i < n)
+	{
+		if (*(s1 + i) == *(s2 + i))
+			++i;
+		else
+			return(*(s1 + i) - *(s2 + i));
+	}
+	if (i == n && *(s1 + i) == ' ')
+		return (0);
+	return (-1); /* one of the strings was too short, not the best*/
 }

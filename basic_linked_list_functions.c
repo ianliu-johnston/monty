@@ -37,6 +37,7 @@ void free_stack(stack_t *head)
 {
 	stack_t *tmp;
 
+
 	while (head != NULL)
 	{
 		tmp = head;
@@ -56,6 +57,8 @@ stack_t *pop_s(stack_t **head)
 {
 	stack_t *tmp;
 
+	printf("%s\n", __FILE__);
+
 	if (!head || !*head)
 		return (NULL);
 
@@ -64,6 +67,7 @@ stack_t *pop_s(stack_t **head)
 
 	if(*head)
 		(*head)->prev = NULL;
+
 
 	return (tmp); /*remember to free it*/
 }
