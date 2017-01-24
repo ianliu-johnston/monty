@@ -6,7 +6,8 @@
 #include <unistd.h>
 
 /*extern variable, stack or queue*/
-extern char* flag;
+
+extern char *flag;
 
 #define LINE_LENGTH 32
 
