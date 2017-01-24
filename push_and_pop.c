@@ -15,6 +15,7 @@ void push(stack_t **h, char *line, unsigned int l)
 	stack_t *node;
 
 	start_n = reach_number(line);
+	printf("%s %s\n", __FILE__, start_n);
 	if (start_n == NULL)
 	{
 		printf("L%d: usage: push integer\n", l);

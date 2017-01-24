@@ -7,42 +7,45 @@
 
 /**
  * pall - print all the elements in a dll as numbers
- * @h: pointer to dll
+ * @head: pointer to dll
 `* @l: line number
  * opcode: pall
  */
-void pall(stack_t **h, unsigned int l)
+void pall(stack_t **head, unsigned int l)
 {
+	stack_t *h;
 	(void) l;
 
-	if (!h)
+	if (!head)
 		return;
-
-	while (*h != NULL)
+	h = *head;
+	while (h != NULL)
 	{
-		printf("%d\n", (*h)->n);
-		*h = (*h)->next;
+		printf("%d\n", h->n);
+		h = h->next;
 	}
 }
 
 
 /**
  * pstr - print all the elements in a dll as chars
- * @h: pointer to dll
+ * @head: pointer to dll
  * @l: line number
  * opcode: pstr
  */
-void pstr(stack_t **h, unsigned int l)
+void pstr(stack_t **head, unsigned int l)
 {
+	stack_t *h;
 	(void) l;
 
-	if (!h || !*h)
+	if (!head || !*head)
 		puts("");
 
-	while (*h != NULL && (*h)->n > 0 && (*h)->n < 127)
+	h = *head;
+	while (h != NULL && h->n > 0 && h->n < 127)
 	{
-		printf("%c\n", (*h)->n);
-		*h = (*h)->next;
+		printf("%c\n", h->n);
+		h = h->next;
 	}
 }
 

@@ -36,7 +36,6 @@ int main(int ac, char **av)
 		line = NULL;
 		length = 0;
 		nr = getline(&line, &length, fp);
-		printf("%s\n", __FILE__);
 		if (nr > 0)
 			execute(&h, line, line_number);
 		else
