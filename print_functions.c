@@ -66,7 +66,7 @@ void pint(stack_t **h, unsigned int l)
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%c\n", (*h)->n);
+	printf("%d\n", (*h)->n);
 }
 
 

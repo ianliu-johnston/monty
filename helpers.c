@@ -94,15 +94,23 @@ int _strncmp(char *s1, char *s2, int n)
 {
 	int i;
 
+/*	printf("_strncmp %s %s\n", s1, s2);*/
 	i = 0;
 	while (*(s1 + i) != '\0' && *(s2 + i) != '\0' && i < n)
 	{
 		if (*(s1 + i) == *(s2 + i))
+		{
 			++i;
+		}
 		else
+		{
+/*			printf("%s %c %c\n", __FILE__, *(s1 + i), *(s2 + i));*/
 			return(*(s1 + i) - *(s2 + i));
+		}
 	}
-	if (i == n && *(s1 + i) == ' ')
+	printf("%s\n", __FILE__);
+	if (i == n && (*(s1 + i) == ' ' || *(s1 + i) == '\t' ||
+		       *(s1 + i) == '\0' || *(s1 + i) == '\n'))
 		return (0);
 	return (-1); /* one of the strings was too short, not the best*/
 }
