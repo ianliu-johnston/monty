@@ -36,6 +36,7 @@ void execute(stack_t **h, char *line, unsigned int line_number)
 
 	if (_strncmp(start_c, "push", _strlen("push")) == 0)
 	{
+		printf("execute push\n");
 		push(h, line, line_number);
 		return;
 	}
