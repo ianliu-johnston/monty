@@ -1,6 +1,5 @@
 #include "monty.h"
 
-
 /*maybe create _exit here, if ever we feel the need for it*/
 
 /* these function do not take # into account yet*/
@@ -88,7 +87,7 @@ int _strcmp(char *s1, char *s2)
  * @s1: string to compare
  * @s2: opcode
  * @n: length of opcode to compare
- * Return: It returns 0 if OK 
+ * Return: It returns 0 if OK
 */
 int _strncmp(char *s1, char *s2, int n)
 {
