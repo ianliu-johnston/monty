@@ -52,13 +52,11 @@ char *reach_number(char *s)
 	if (!s)
 		return (NULL);
 
-	printf("reach_number entry %s\n", s);
 	while (*s && (*s < '0' || *s > '9'))
 		++s;
 
 	if (*s == '\0')
 		return (NULL);
-	printf("reach_number out %s\n", s);
 	return (s);
 }
 
@@ -95,7 +93,6 @@ int _strncmp(char *s1, char *s2, int n)
 {
 	int i;
 
-	printf("_strncmp %s %s\n", s1, s2);
 	i = 0;
 	while (*(s1 + i) != '\0' && *(s2 + i) != '\0' && i < n)
 	{
@@ -105,13 +102,11 @@ int _strncmp(char *s1, char *s2, int n)
 		}
 		else
 		{
-/*			printf("%s %c %c\n", __FILE__, *(s1 + i), *(s2 + i));*/
-			return(*(s1 + i) - *(s2 + i));
+			return (*(s1 + i) - *(s2 + i));
 		}
 	}
-	printf("%s _strncmp\n", __FILE__);
 	if (i == n && (*(s1 + i) == ' ' || *(s1 + i) == '\t' ||
 		       *(s1 + i) == '\0' || *(s1 + i) == '\n'))
 		return (0);
-	return (-1); /* one of the strings was too short, not the best*/
+	return (EXIT_FAILURE); /* one of the strings was too short, not the best*/
 }
