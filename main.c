@@ -20,7 +20,7 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		printf("USAGE: %s file\n", av[0]);
+		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	h = NULL;
