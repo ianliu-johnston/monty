@@ -48,7 +48,7 @@ char *skip_spaces(char *s)
  */
 char *reach_number(char *s)
 {
-	char *c;
+/*	char *c;*/
 
 	if (!s)
 		return (NULL);
@@ -58,12 +58,12 @@ char *reach_number(char *s)
 
 	if (*s == '\0')
 		return (NULL);
-	c = s;
+/*	c = s;
 	while (*c && *c >= '0' && *c <= '9')
 		c++;
 
 	if (!(*c == '\0' || *c == '\n' || *c == ' ' || *c == '\t'))
-		return (NULL);
+	return (NULL);*/
 
 	return (s);
 }
