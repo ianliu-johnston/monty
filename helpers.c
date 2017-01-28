@@ -49,6 +49,8 @@ char *skip_spaces(char *s)
  */
 char *reach_number(char *s)
 {
+	char *c;
+
 	if (!s)
 		return (NULL);
 
@@ -58,6 +60,14 @@ char *reach_number(char *s)
 
 	if (*s == '\0')
 		return (NULL);
+
+
+	c = s;
+	while(*c && *c >= '0' && *c <= '9')
+		++c;
+	if (!(*c == ' ' || *c == '\0' || *c == '\t' || *c == '\n'))
+		return (NULL);
+
 	printf("reach_number out %s\n", s);
 	return (s);
 }
