@@ -44,10 +44,12 @@ char *skip_spaces(char *s)
  * reach_number - get the first number in a string
  * @s:
  * the string should contain only spaces and a valid opcode before
- * Return: a pointer to where the number is or NULL
+ * Return: a pointer to where the number (and a number is not 4e) is or NULL
  */
 char *reach_number(char *s)
 {
+	char *c;
+
 	if (!s)
 		return (NULL);
 
@@ -56,6 +58,13 @@ char *reach_number(char *s)
 
 	if (*s == '\0')
 		return (NULL);
+	c = s;
+	while (*c && *c >= '0' && *c <= '9')
+		c++;
+
+	if (!(*c == '\0' || *c == '\n' || *c == ' ' || *c == '\t'))
+		return (NULL);
+
 	return (s);
 }
 

@@ -60,7 +60,7 @@ void pint(stack_t **h, unsigned int l);
 
 /*in push_and_pop*/
 void pop(stack_t **h, unsigned int l);
-void push (stack_t **h, char *line, unsigned int l);
+int push (stack_t **h, char *line, unsigned int l);
 
 /*in move_elements_functions*/
 void swap(stack_t **h, unsigned int l);

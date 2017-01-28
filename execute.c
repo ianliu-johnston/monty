@@ -22,7 +22,7 @@ int execute(stack_t **h, char *line, unsigned int line_number)
 		{"swap", swap}, {"pstr", pstr},
 		{NULL, NULL}
 	};
-	int i;
+	int i, push_return;
 	char *start_c;
 
 	start_c = skip_spaces(line);
@@ -33,8 +33,8 @@ int execute(stack_t **h, char *line, unsigned int line_number)
 	}
 	if (_strncmp(start_c, "push", _strlen("push")) == 0)
 	{
-		push(h, line, line_number);
-		return (1);
+		push_return = push(h, line, line_number);
+		return ((push_return == 0) ? 0 : -1);
 	}
 	for (i = 0; instr[i].opcode; ++i)
 	{
