@@ -51,6 +51,7 @@ stack_t *add_node(stack_t **head, const int n);
 void free_stack(stack_t *head);
 stack_t *pop_s(stack_t **head);
 stack_t *dequeue(stack_t **head);
+stack_t *add_node_end(stack_t **head, int n);
 
 /*functions to print the stack or queue*/
 void pall(stack_t **h, unsigned int l);

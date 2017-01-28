@@ -23,7 +23,11 @@ int push(stack_t **h, char *line, unsigned int l)
 		return (-1);
 	};
 
-	node = add_node(h, atoi(start_n));
+	if (_strcmp(flag, "stack") == 0)
+		node = add_node(h, atoi(start_n));
+	else
+		node = add_node_end(h, atoi(start_n));
+
 	free(line);
 	if (node == NULL)
 	{
@@ -42,10 +46,7 @@ void pop(stack_t **h, unsigned int l)
 {
 	stack_t *node;
 
-	if (_strcmp(flag, "stack") == 0)
-		node = pop_s(h);
-	else
-		node = dequeue(h);
+	node = pop_s(h);
 
 	if (node == NULL)
 	{
