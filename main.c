@@ -39,7 +39,7 @@ int main(int ac, char **av)
 		{
 			exec_err = execute(&h, line, line_number);
 			if (exec_err == -1)
-				status = -1;
+				status = -2;
 		}
 		else
 			free(line);
@@ -47,5 +47,7 @@ int main(int ac, char **av)
 
 	close(fp);
 	free_stack(h), h = NULL;
-	return (0);
+	if (status == -1)
+		return (0);
+	exit(EXIT_FAILURE);
 }
