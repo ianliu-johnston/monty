@@ -11,7 +11,7 @@ char *flag = "stack";
  */
 int main(int ac, char **av)
 {
-	stack_t *h;
+	stack_t *stack_or_queue;
 	unsigned int line_number;
 	ssize_t status;
 	char *line;
@@ -23,19 +23,12 @@ int main(int ac, char **av)
 		printf("USAGE: %s file\n", av[0]);
 		exit(EXIT_FAILURE);
 	}
-	if (strncmp(av[1], "-"))
+	stack_or_queue = NULL;
+	fp = fopen(av[1], "r");
+	if (fp == NULL)
 	{
-		fp = fopen("tmp",
-	}
-	else
-	{
-		h = NULL;
-		fp = fopen(av[1], "r");
-		if (fp == NULL)
-		{
-			printf("Error: Can't open file %s\n", av[1]);
-			exit(EXIT_FAILURE);
-		}
+		printf("Error: Can't open file %s\n", av[1]);
+		exit(EXIT_FAILURE);
 	}
 	line_number = 0;
 	do {
@@ -47,14 +40,14 @@ int main(int ac, char **av)
 		{
 			line[status - 1] = '\0';
 			printf("line: %s, status: %d\n", line, (unsigned int)status);
-			execute(&h, line, line_number);
+			execute(&stack_or_queue, line, line_number);
 		}
 		else
 			free(line);
 	} while (status >= 0);
 
 	fclose(fp);
-	free_stack(h);
+	free_stack(stack_or_queue);
 
 	return (0);
 }
