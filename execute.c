@@ -24,30 +24,28 @@ void execute(stack_t **h, char *line, unsigned int line_number)
 
 	start_c = skip_spaces(line);
 	if (start_c == NULL)
+	{
+		free(line);
 		return;
+	}
 	if (_strncmp(start_c, "push", _strlen("push")) == 0)
 	{
 		push(h, line, line_number);
 		return;
 	}
-
 	for (i = 0; instr[i].opcode; ++i)
 	{
 		if (_strncmp(start_c, instr[i].opcode, _strlen(instr[i].opcode)) == 0)
 		{
-			free(line);
-			(instr[i].f)(h, line_number);
+			free(line), (instr[i].f)(h, line_number);
 			return;
 		}
 	}
-	/*Maybe change for buffer.*/
 	printf("L%d: unknown instruction ", line_number);
 	while (*start_c && (*start_c != ' ' && *start_c != '\t'))
 		putchar(*start_c++);
 	putchar('\n');
-	free(line);
-	free_stack(*h);
-	*h = NULL;
+	free(line), free_stack(*h), *h = NULL;
 	exit(EXIT_FAILURE);
 }
 

@@ -32,9 +32,8 @@ char *skip_spaces(char *s)
 
 	while (*s && *s == ' ')
 		++s;
-	if (*s == '\0') /*empty string*/
+	if (*s == '\0' || *s == '\n') /*empty string*/
 		return (NULL);
-
 	return (s);
 }
 

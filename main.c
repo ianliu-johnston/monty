@@ -36,8 +36,10 @@ int main(int ac, char **av)
 		line = NULL;
 		length = 0;
 		status = getline(&line, &length, fp);
-		if (status > 0)
+		if (status > 2)
+		{
 			execute(&h, line, line_number);
+		}
 		else
 			free(line);
 	} while (status >= 0);
