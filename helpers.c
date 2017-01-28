@@ -66,8 +66,6 @@ char *reach_number(char *s)
 	if (!(*c == ' ' || *c == '\0' || *c == '\t' || *c == '\n'))
 		return (NULL);
 
-	printf("reach_number out %s\n", s);
-
 	return (s);
 }
 
