@@ -12,17 +12,15 @@ char *flag = "stack";
 int main(int ac, char **av)
 {
 	stack_t *h;
-	int exec_err;
+	int exec_err, fp;
 	unsigned int line_number;
 	ssize_t status;
 	char *line;
 	size_t length;
-	int fp;
 
 	if (ac != 2)
 	{
-		printf("USAGE: monty file\n");
-		exit(EXIT_FAILURE);
+		printf("USAGE: monty file\n"), exit(EXIT_FAILURE);
 	}
 	h = NULL;
 	fp = open(av[1], O_RDONLY);

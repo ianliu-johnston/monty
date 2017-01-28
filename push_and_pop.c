@@ -8,8 +8,9 @@
  * @h: pointer to dll
  * @line: pointer to line
  * @l: line number
+ * Return: 0 on success -1 on failure
  */
-void push(stack_t **h, char *line, unsigned int l)
+int push(stack_t **h, char *line, unsigned int l)
 {
 	char *start_n;
 	stack_t *node;
@@ -19,9 +20,7 @@ void push(stack_t **h, char *line, unsigned int l)
 	{
 		printf("L%d: usage: push integer\n", l);
 		free(line);
-		free(*h);
-		*h = NULL;
-		exit(EXIT_FAILURE);
+		return (-1);
 	};
 
 	node = add_node(h, atoi(start_n));
@@ -29,9 +28,9 @@ void push(stack_t **h, char *line, unsigned int l)
 	if (node == NULL)
 	{
 		puts("Error: malloc failed");
-		free_stack(*h);
-		exit(EXIT_FAILURE);
+		return (-1);
 	}
+	return (0);
 }
 
 /**
