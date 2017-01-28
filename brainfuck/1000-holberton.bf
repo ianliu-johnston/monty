@@ -7,15 +7,15 @@ This is the program compressed into one line:
 ]
 
 ++++            a0 add 4
-[               start loop. 
+[               start loop 
  >+++           a1 add 3
- [              start nested loop.
+ [              start nested loop
   >++++++       a2 add 6
   >++++++       a3 add 6
   <<-           a1 sub 1
- ]              end nested loop.
+ ]              end nested loop
  <-             a0 sub 1
-]               end loop.
+]               end loop
 
 >>.             a2       Print                  a2 and a3 are currently 'H' (72) 'H' is printed to stdout with putchar
 <+++++          a1 add 5
@@ -29,7 +29,7 @@ This is the program compressed into one line:
  >+             a5 add 1                        = 'o' after loop
  >+             a6 add 1                        = 'o' after loop
  >+             a7 add 1                        = 'o' after loop
- <<<<<-         a2 sub 1                        decrements until end of loop.
+ <<<<<-         a2 sub 1                        decrements until end of loop
 ]               end loop
 >>---.          a4 sub 3 Print                  Prints 'l'
 <<+++++         a2 add 5
@@ -43,10 +43,10 @@ This is the program compressed into one line:
 ++.             a5 add 2 Print                  Prints 't'
 >.              a6       Print                  Prints 'o'
 >-.             a7 sub 1 Print
-[<]             a2                              start loop and go to a register whose value is zero then end loop.
+[<]             a2                              start loop and go to a register whose value is zero then end loop
 <+++            a1 add 3
 [               start loop
->+++            a2 add 3                        will be 9 at the end of the loop.
+>+++            a2 add 3                        will be 9 at the end of the loop
 <-              a1 sub 1
 ]               end loop
 >+.             a2 add 1 Print                  Prints '\n'
