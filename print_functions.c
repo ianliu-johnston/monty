@@ -36,14 +36,14 @@ void pstr(stack_t **head, unsigned int l)
 	stack_t *h;
 	(void) l;
 
-	if (!head || !*head)
-		puts("");
-
-	h = *head;
-	while (h != NULL && h->n > 0 && h->n < 127)
+	if (head != NULL)
 	{
-		printf("%c", h->n);
-		h = h->next;
+		h = *head;
+		while (h != NULL && h->n > 0 && h->n < 127)
+		{
+			printf("%c", h->n);
+			h = h->next;
+		}
 	}
 	putchar('\n');
 }
@@ -60,7 +60,7 @@ void pint(stack_t **h, unsigned int l)
 
 	if (!h || !*h)
 	{
-		printf("L%d: can't pint, %s empty\n", l, flag);
+		printf("L%d: can't pint, stack empty\n", l);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
 	}
@@ -80,7 +80,7 @@ void pchar(stack_t **h, unsigned int l)
 
 	if (!h || !*h)
 	{
-		printf("L%d: can't pchar, %s empty\n", l, flag);
+		printf("L%d: can't pchar, stack empty\n", l);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
 	}

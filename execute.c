@@ -65,17 +65,11 @@ int get_argument(stack_t **h, char *opcode, unsigned int l)
 	stack_t *node;
 	int tmp;
 
-	if (_strcmp(flag, "stack") == 0)
-	{
-		node = pop_s(h);
-	}
-	else
-	{
-		node = dequeue(h);
-	}
+	node = pop_s(h);
+
 	if (node == NULL)
 	{
-		printf("L%d: can't %s, %s too short\n", l, opcode, flag);
+		printf("L%d: can't %s, stack too short\n", l, opcode);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
 	}
