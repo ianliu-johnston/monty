@@ -63,7 +63,7 @@ char *reach_number(char *s)
 		c++;
 
 	if (!(*c == '\0' || *c == '\n' || *c == ' ' || *c == '\t'))
-		return (NULL);
+	return (NULL);
 
 	return (s);
 }
