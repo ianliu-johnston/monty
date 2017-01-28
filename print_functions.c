@@ -42,9 +42,10 @@ void pstr(stack_t **head, unsigned int l)
 	h = *head;
 	while (h != NULL && h->n > 0 && h->n < 127)
 	{
-		printf("%c\n", h->n);
+		printf("%c", h->n);
 		h = h->next;
 	}
+	putchar('\n');
 }
 
 

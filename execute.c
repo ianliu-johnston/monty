@@ -19,7 +19,8 @@ int execute(stack_t **h, char *line, unsigned int line_number)
 		{"pop", pop}, {"rotl", rotl},
 		{"rotr", rotr}, {"stack", stack},
 		{"queue", queue}, {"nop", nop},
-		{"swap", swap}, {NULL, NULL}
+		{"swap", swap}, {"pstr", pstr},
+		{NULL, NULL}
 	};
 	int i;
 	char *start_c;
