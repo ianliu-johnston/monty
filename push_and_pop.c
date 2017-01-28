@@ -50,7 +50,7 @@ void pop(stack_t **h, unsigned int l)
 
 	if (node == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty %s\n", l, flag);
+		printf("L%d: can't pop an empty %s\n", l, flag);
 		free_stack(*h);
 		exit(EXIT_FAILURE);
 	}
