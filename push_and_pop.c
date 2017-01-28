@@ -17,7 +17,7 @@ void push(stack_t **h, char *line, unsigned int l)
 	start_n = reach_number(line);
 	if (start_n == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", l);
+		printf("L%d: usage: push integer\n", l);
 		free(line);
 		free(*h);
 		*h = NULL;

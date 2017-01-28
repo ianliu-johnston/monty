@@ -1,6 +1,9 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -9,7 +12,7 @@
 
 extern char *flag;
 
-#define LINE_LENGTH 32
+#define BUF_LENGTH 1024
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -84,11 +87,10 @@ int _strcmp(char *s1, char *s2);
 int _strncmp(char *s1, char *s2, int n);
 int _strlen(char *s);
 
+/* in getline.c */
+ssize_t _getline(char **buf, size_t *size, int file_strm);
 
 /*in execute*/
-void execute(stack_t **h, char *line, unsigned int line_number);
-
-/*in main*/
-int main(int ac, char **av);
+int execute(stack_t **h, char *line, unsigned int line_number);
 
 #endif

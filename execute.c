@@ -7,7 +7,7 @@
  * @line: command line
  * @line_number: line number of the command line in the file
  */
-void execute(stack_t **h, char *line, unsigned int line_number)
+int execute(stack_t **h, char *line, unsigned int line_number)
 {
 	instruction_t instr[] = {
 		{"pall", pall}, {"add", _add},
@@ -26,27 +26,27 @@ void execute(stack_t **h, char *line, unsigned int line_number)
 	if (start_c == NULL)
 	{
 		free(line);
-		return;
+		return (1);
 	}
 	if (_strncmp(start_c, "push", _strlen("push")) == 0)
 	{
 		push(h, line, line_number);
-		return;
+		return (1);
 	}
 	for (i = 0; instr[i].opcode; ++i)
 	{
 		if (_strncmp(start_c, instr[i].opcode, _strlen(instr[i].opcode)) == 0)
 		{
 			free(line), (instr[i].f)(h, line_number);
-			return;
+			return (0);
 		}
 	}
 	printf("L%d: unknown instruction ", line_number);
 	while (*start_c && (*start_c != ' ' && *start_c != '\t'))
 		putchar(*start_c++);
 	putchar('\n');
-	free(line), free_stack(*h), *h = NULL;
-	exit(EXIT_FAILURE);
+	free(line);
+	return (-1);
 }
 
 
