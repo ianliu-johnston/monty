@@ -15,4 +15,3 @@ End Comment ]
 >-               a2 sub 1                a2 decrements by 1 until nothing left
 ]                end loop
 <+.              a1 add 1  Print         To get to 50
->>>++++++++++.   a4 add 10 Print         To print a new line
