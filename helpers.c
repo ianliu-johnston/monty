@@ -32,7 +32,7 @@ char *skip_spaces(char *s)
 
 	while (*s && (*s == ' ' || *s == '\t' || *s == '\v'))
 		++s;
-	if (*s == '\0' || *s == '\n') /*empty string*/
+	if (*s == '\0' || *s == '\n' || *s == '#') /*empty string or comment*/
 		return (NULL);
 	return (s);
 }
