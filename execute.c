@@ -6,6 +6,8 @@
  * @h: pointer to dll
  * @line: command line
  * @line_number: line number of the command line in the file
+ * Return: 0 on Success, 1 on blank lines or push
+ * return -1 on catastrophic failure
  */
 int execute(stack_t **h, char *line, unsigned int line_number)
 {
