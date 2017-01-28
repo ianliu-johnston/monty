@@ -20,15 +20,22 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		printf("USAGE: %s file\n", av[0]);
+		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	h = NULL;
-	fp = fopen(av[1], "r");
-	if (fp == NULL)
+	if (strncmp(av[1], "-"))
 	{
-		printf("Error: Can't open file %s\n", av[1]);
-		exit(EXIT_FAILURE);
+		fp = fopen("tmp",
+	}
+	else
+	{
+		h = NULL;
+		fp = fopen(av[1], "r");
+		if (fp == NULL)
+		{
+			printf("Error: Can't open file %s\n", av[1]);
+			exit(EXIT_FAILURE);
+		}
 	}
 	line_number = 0;
 	do {
@@ -37,7 +44,11 @@ int main(int ac, char **av)
 		length = 0;
 		status = getline(&line, &length, fp);
 		if (status > 0)
+		{
+			line[status - 1] = '\0';
+			printf("line: %s, status: %d\n", line, (unsigned int)status);
 			execute(&h, line, line_number);
+		}
 		else
 			free(line);
 	} while (status >= 0);
