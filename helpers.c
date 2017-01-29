@@ -73,7 +73,6 @@ char *reach_number(char *s)
 	return (NULL);
 
 	res = atoi(s) * neg;
-	printf("%d\n", res);
 	if (res < 0)
 	{
 		s[i - 1] = '-';

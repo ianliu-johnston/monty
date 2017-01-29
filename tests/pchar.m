@@ -1,5 +1,4 @@
-push -98
-pchar
 push 98
+push 102
+push -98
 pall
-pchar
