@@ -37,4 +37,3 @@ End Comment ]
 >-               a3 sub 1                a3 decrements by 1 until nothing left
 ]                end loop
 <.               a2  Print
->++++ ++++ ++.	 a3 add 10 Print
