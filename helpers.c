@@ -49,12 +49,19 @@ char *skip_spaces(char *s)
 char *reach_number(char *s)
 {
 	char *c;
+	int res, i, neg = 1;
 
+	res = i = 0;
 	if (!s)
 		return (NULL);
 
 	while (*s && (*s < '0' || *s > '9'))
+	{
+		if (*s == '-')
+			neg = -1;
+		i++;
 		++s;
+	}
 
 	if (*s == '\0')
 		return (NULL);
@@ -65,6 +72,13 @@ char *reach_number(char *s)
 	if (!(*c == '\0' || *c == '\n' || *c == ' ' || *c == '\t'))
 	return (NULL);
 
+	res = atoi(s) * neg;
+	printf("%d\n", res);
+	if (res < 0)
+	{
+		s[i - 1] = '-';
+		return (s - 1);
+	}
 	return (s);
 }
 
