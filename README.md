@@ -21,11 +21,11 @@ Current opcodes are:
 3. `pop` pop the value at the top of the stack.  
 4. `pint` peek the top of the stack.  
 5. `pchar` peek, turning the value into an ascii character if possible.  
-6. `add` pop the 2 elements at the top, push the addition on the stack.  
-7. `sub` pop the 2 elements at the top, push the subtraction on the stack.  
-8. `mul` pop the 2 elements at the top, push the multiplication on the stack.  
-9. `div` pop the 2 elements at the top, push the division on the stack.  
-10. `mod` pop the 2 elements at the top, push the modulo on the stack. 
+6. `add` pop the 2 elements at the top, push the result of the addition on the stack.  
+7. `sub` pop the 2 elements at the top, push the result of the subtraction on the stack.  
+8. `mul` pop the 2 elements at the top, push the result of the multiplication on the stack.  
+9. `div` pop the 2 elements at the top, push the result of the division on the stack.  
+10. `mod` pop the 2 elements at the top, push the modulo on the stack.   
 11. `swap` swap the top 2 elements of the stack.  
 12. `rotl` move the top element to the bottom of the stack.  
 13. `rotr` move the element at the bottom of the stack to the top.  
@@ -37,6 +37,7 @@ Current opcodes are:
 The Monty language allows for any space before or after the opcode and its argument. Any text after the argument is disregarded.  
 Any line starting with a `#` is considered a comment.  
 Currently the stack is implemented as a doubly linked list.  
+For calculations. If `a` is the first value popped and `b` the second one, the expression evaluated is `b` operator `a`. Hence `a` must be not `0` for divisions and modulo.  
 If the user attempts to perform an illegal operation an error message is displayed and the program exits with status `EXIT_FAILURE`.
 
 ####Brainfuck program
