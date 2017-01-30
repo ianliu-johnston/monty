@@ -19,7 +19,7 @@ Current opcodes are:
 1. `push` push onto stack. This opcode is the only one requiring an argument. This argument must be an integer.  
 2. `pall` print all stack.  
 3. `pop` pop the value at the top of the stack.  
-4. `pint` peek the top of the stack.
+4. `pint` peek the top of the stack.  
 5. `pchar` peek, turning the value into an ascii character if possible.  
 6. `add` pop the 2 elements at the top, push the addition on the stack.  
 7. `sub` pop the 2 elements at the top, push the subtraction on the stack.  
