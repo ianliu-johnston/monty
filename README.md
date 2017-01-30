@@ -12,11 +12,11 @@ To Install the brainfuck interpreter:
 
 ## Usage
 ####Monty interpreter
-The Monty language is a very simple one. Monty relies on a unique stack of integers.  
+The Monty language is a very simple programming language. Monty relies on a unique stack of integers and performs some operations.  
 Usage is : `./monty FILE` where `FILE` contains lines of commands.  
 Lines are of the type `opcode [argument]`.  
 Current opcodes are:  
-1. `push` push onto stack. This opcode is the only one requiring an argument.  
+1. `push` push onto stack. This opcode is the only one requiring an argument. This argument must be an integer.  
 2. `pall` print all stack.  
 3. `pop` pop the value at the top of the stack.  
 4. `pint` peek the top of the stack.
@@ -31,12 +31,13 @@ Current opcodes are:
 13. `rotr` move the element at the bottom of the stack to the top.  
 14. `pstr` print the whole stack as a string if possible.  
 15. `queue` change the functionment of the stack to one of a queue. Enqueue to the bottom of the stack and dequeue from the top.  
-16. `stack` is the reverse of queue.  
+16. `stack` is the reverse of queue, it reestablishes the stack.  
 17. `nop` does not do anything
 <br>
 The Monty language allows for any space before or after the opcode and its argument. Any text after the argument is disregarded.  
 Any line starting with a `#` is considered a comment.  
-Currently the stack is implemented as a doubly linked list.
+Currently the stack is implemented as a doubly linked list.  
+If the user attempts to perform an illegal operation an error message is displayed and the program exits with status `EXIT_FAILURE`.
 
 ####Brainfuck program
 in the brainfuck folder: `bf FILE`.  
@@ -88,6 +89,7 @@ Multiply 2 single digits numbers whose result is less than 10 in bf.
 
 ## Bugs
 Who doesn't ?
+Currently the interpreter relies on the `atoi` function from the C standard library and overflows are not handled. This default functionment is repeated for calculations, overflows are not handled there either.  
 
 ## Links
 [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck)
